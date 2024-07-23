@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar with Login/Logout</title>
+    <style>
+        /* Basic CSS for the navbar */
+        nav {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        li {
+            display: inline;
+            margin-right: 10px;
+        }
+        a {
+            color: #fff;
+            text-decoration: none;
+        }
+        /* CSS for the login/logout section */
+        #login-status {
+            float: right;
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Contact</a></li>
+        <li>
+            <select id="language-selector">
+                <option value="en">English</option>
+                <option value="fr">French</option>
+                <option value="es">Spanish</option>
+            </select>
+        </li>
+    </ul>
+    <div id="login-status">
+        <!-- Initially showing login -->
+        <span id="login">Login</span>
+        <!-- Hidden logout, will be shown when user logs in -->
+        <span id="logout" style="display: none;">Logout</span>
+    </div>
+</nav>
+
+<div>
+    <h2>Login</h2>
+    <form id="login-form">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        <input type="submit" value="Login">
+    </form>
+</div>
+
+<script>
+    // Simulated login/logout functionality
+    var isLoggedIn = false;
+
+    // Function to toggle login/logout status
+    function toggleLoginStatus() {
+        if (isLoggedIn) {
+            isLoggedIn = false;
+            document.getElementById("login").style.display = "inline";
+            document.getElementById("logout").style.display = "none";
+        } else {
+            isLoggedIn = true;
+            document.getElementById("login").style.display = "none";
+            document.getElementById("logout").style.display = "inline";
+        }
+    }
+
+    // Event listener for login/logout span click
+    document.getElementById("login").addEventListener("click", toggleLoginStatus);
+    document.getElementById("logout").addEventListener("click", toggleLoginStatus);
+</script>
+
+</body>
+</html>
